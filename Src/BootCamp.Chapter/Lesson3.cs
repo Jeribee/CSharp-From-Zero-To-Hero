@@ -19,9 +19,8 @@ namespace BootCamp.Chapter
 
             PromptString(message: "Height (cm): ", ConsoleColor.Red);
             double height = PromptFloat();
-            double meterHeight = height / 100;
 
-            double bmi = CalculateBmi(weight, meterHeight);
+            double bmi = CalculateBmi(weight, height);
 
             PromptString(message: "\n" + name + " is " + age + " years old. Their weight is " + weight + " kg and their height is " + height + " cm. BMI is " + Math.Round(bmi, 2) + "\n", ConsoleColor.DarkGreen);
         }
@@ -42,8 +41,9 @@ namespace BootCamp.Chapter
             double result = double.Parse(Console.ReadLine());
             return result;
         }
-        public static double CalculateBmi(double weight,  double meterHeight)
+        public static double CalculateBmi(double weight,  double height)
         {
+            double meterHeight = height / 100;
             double bmi = weight / (meterHeight * meterHeight);
             return bmi;
         }
